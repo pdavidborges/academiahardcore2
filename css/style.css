@@ -1,0 +1,474 @@
+/*Variáveis*/
+:root{
+    --brand : #B91F33;
+    --dark : #101417;
+    --contrast : #E0E34C;    
+    --gray-light: #E1E1E1;
+    --swiper-navigation-color: var(--brand);
+    /*--swiper-pagination-color: var(--brand);*/
+}
+
+.swiper-pagination-bullet{
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.swiper-pagination-bullet-active{
+    background-color: var(--brand);
+}
+
+/*
+    * seletor "ALL"
+*/
+
+html{
+    scroll-behavior: smooth;
+}
+
+#academia, #contato{
+    scroll-margin-top: 200px;
+}
+
+#planos{
+    scroll-margin-top: 150px;
+}
+
+
+*{
+    font-family: "Teko", sans-serif;
+    text-transform: uppercase;
+}
+    
+body{    
+    background-color: var(--dark); 
+    margin: 0;
+    /*cursor: url(../img/seta.png) , auto;*/
+}
+
+/*
+a, button{
+    cursor: url(../img/cursor.png) , auto;
+}
+*/
+
+a{
+    text-decoration: none;
+}
+
+
+h1,h2,h3,h4,h5,h6{
+    margin: 0;    
+}
+
+h2{
+    font-size: 40px;
+    color: #ffffff;
+    line-height: 70%;
+}
+
+p{
+    font-size: 18px;
+    color: var(--gray-light);
+    line-height: 120%;
+}
+
+img{
+    display: block;
+}
+
+.container{
+    width: calc(100% - 30px);
+    max-width: 1140px;
+    margin: 0 auto; /*vertical (top/bottom) horizontal (left/right)*/            
+}
+
+.header{
+    width: 100%;
+    height: auto;
+    background-color: #000000;
+    padding: 16px 0;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000; /*a quantidade de "camadas"*/
+}
+
+/*formatando o container que está DENTRO do header */
+.header .container{
+    display: flex;    
+    justify-content: space-between; /*alinhamento horizontal*/
+    align-items: center; /*alinhamento vertical*/    
+}
+
+.menu a{
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 111px;
+}
+
+.menu a:hover{
+    color: var(--brand);
+}
+
+
+.bg-1{
+    background-image: url(../img/background.jpg);
+}
+
+.bg-2{
+    background-image: url(../img/background-2.jpg);
+}
+
+.bg-3{
+    background-image: url(../img/background-3.jpg);
+}
+
+.hero-section{
+    width: 100%;
+    height: calc(100vh - 100px); /*VIEW HEIGHT (Unidade de medida baseada na altura do browser)*/   
+    background-size: cover;
+    background-position: center;
+    /*background-repeat: no-repeat;*/
+    text-align: center;
+
+    display: flex;    
+    align-items: center;
+}
+
+.hero-section h1{
+    color: var(--gray-light);
+    font-size: 96px;
+    line-height: 90%; /*altura da linha*/
+}
+
+.hero-section p{
+    color: var(--gray-light);
+    font-size: 24px;
+    line-height: 120%;
+}
+
+/*button*/
+.btn{
+    display: inline-block;
+    background-color: var(--brand);
+    color: #ffffff;
+    font-size: 18px;    
+    padding: 9px 60px 5px 60px; /*top right bottom left*/
+    border-radius: 3px;
+    transition: 0.3s;
+    border: solid 2px transparent;
+    cursor: pointer;    
+}
+
+.btn:hover{
+    transform: scale(0.97);
+}
+
+.academia{
+    
+    display: flex;    
+    align-items: center;
+
+    column-gap: 24px; /*espaço entre as colunas*/
+
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.faca-parte{
+    background-color: var(--gray-light);    
+}
+
+.faca-parte h2{
+    color: var(--dark);
+}
+
+.faca-parte p{
+    color: #666666;
+    /*text-align: justify;*/
+}
+
+.faca-parte .container{
+    padding-top: 37px;
+    padding-bottom: 37px;
+    position: relative;
+}
+
+.faca-parte .content{
+    width: calc(100% - 200px);
+    max-width: 850px;
+}
+
+.faca-parte .image{
+    /*posição em relação ao elemento pai, desde que ele também tenha position 
+    (caso contrário será em relação ao body)*/    
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.planos{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.flex-cards{
+    display: flex;
+    column-gap: 24px; /*espaço entre as colunas*/
+}
+
+.card{
+    border: solid 1px var(--gray-light);
+    border-radius: 3px;
+    padding: 30px;    
+}
+
+.card h3{
+    font-size: 32px;
+    color: #ffffff;    
+}
+
+.card span{
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.card ul{
+    color: var(--gray-light);
+    text-align: left;
+    font-size: 18px;
+}
+
+.card .btn{
+    display: block;
+}
+
+.btn-outline{
+    background-color: transparent;
+    border: solid 2px var(--brand);
+}
+
+.card-destaque{
+    border-color: var(--contrast);       
+    position: relative; /*Para servir de referência para o absolute*/
+}
+
+.card-destaque span{
+    color: var(--contrast);
+}
+
+
+@keyframes rotate {    
+    0% {
+        transform: rotate(0);        
+    }
+    
+    100%{
+        transform: rotate(360deg);        
+    }
+}
+
+.selo{    
+    animation: rotate 5s infinite linear;
+    width: 70px;
+    height: 70px;
+    background-color: var(--contrast);
+    line-height: 90%;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+
+    position: absolute; /*posição em relação ao elemento PAI*/
+    right: -10px;
+    top: -15px;
+}
+
+.selo span{
+    font-size: 16px;
+    color: #000000;
+    font-weight: 400;
+}
+
+.contato{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: flex;
+    column-gap: 24px;
+}
+
+.contato input, .contato textarea{
+    display: block;
+    width: 100%;
+    box-sizing: border-box; /*Faz com que as dimensões sejam respeitadas mesmo com padding e borda*/
+
+    border: solid 1px var(--gray-light);
+    border-radius: 3px;
+    background-color: transparent;
+    padding: 10px 10px 7px 10px;
+    font-size: 18px;
+    color: var(--gray-light);
+    margin-bottom: 10px;
+}
+
+.contato textarea{
+    height: 140px;
+}
+
+.footer{
+    background-color: var(--brand);    
+    padding: 14px 194px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.footer p{
+    margin: 0;
+}
+
+.social{
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+    margin-bottom: 100px;
+}
+
+
+/*Media Queries*/
+@media (max-width: 1100px){
+    
+    .menu{
+        /*display: none;*/
+        background-color: var(--brand);
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 100px);
+
+        display: flex;
+        flex-direction: column;
+
+        transform: translateX(-100%);
+        transition: 0.5s;
+        opacity: 0;
+        pointer-events: none; /*retira toda ação de mouse do elemento*/
+    }
+
+    /*classe que será inserida pelo JAVASCRIPT*/
+    .menu-open{
+        transform: translateX(0);
+        pointer-events: all;
+        opacity: 1;
+    }
+
+    .menu a{
+        margin: 0;        
+        padding: 20px 15px;
+        border-bottom: 1px solid black;
+    }
+
+    .menu a:hover{
+        background-color: var(--dark);
+        color: var(--gray-light);
+    }
+          
+    .bar{
+        width: 40px;
+        height: 3px;
+        background-color: #ffffff;
+        margin-bottom: 3px;
+        transition: 0.5s;
+    }
+
+    /*Quando a classe X existir, as barras serão alteradas*/
+    /*QUANDO a bar for a primeira filha*/
+    .x .bar:first-child{
+        transform: rotate(45deg) translate(5px,5px);
+        transition-delay: 0.3s;
+    }
+
+    /*QUANDO a bar for a filha de número 2*/
+    .x .bar:nth-child(2){
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+
+    /*QUANDO a bar for a última filha*/
+    .x .bar:last-child{
+        transform: rotate(-45deg) translate(4px,-3px);
+        transition-delay: 0.3s;
+    }
+    
+    .hero-section{
+        height: auto;
+        padding: 94px 0;
+    }
+
+    .hero-section h1{
+        font-size: 36px;
+    }
+
+    .hero-section p{
+        font-size: 18px;
+    }
+
+    .academia .image img{
+        width: 400px;
+    }
+    
+
+    .flex-cards{
+        flex-direction: column;
+        row-gap: 30px;
+        align-items: center;
+    }
+
+    .card{
+        max-width: 400px;
+    }
+
+    .contato{
+        flex-direction: column;
+        row-gap: 30px;
+    }
+
+    .container iframe{
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 767px){
+
+    .academia{
+        flex-direction: column;
+        row-gap: 40px;
+    }
+    
+    .academia .image img{
+        width: 100%;
+    }
+    
+    .faca-parte .image{
+        display: none;
+    }
+   
+    .faca-parte .content{
+        width: 100%;
+    }
+
+    .footer{
+        padding: 14px;
+    }
+
+    .selo{
+        width: 60px;
+        height: 60px;
+        right: -3px;
+    }
+
+}
